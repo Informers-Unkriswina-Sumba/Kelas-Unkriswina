@@ -30,5 +30,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+config/kelas-unkriswina-1214487f80a7.json
+
 # vercel
 .vercel
