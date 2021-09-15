@@ -17,10 +17,10 @@ export const actionSetDataClass = () => {
     });
   };
 };
-console.log('process.env', process.env);
-const SPREADSHEET_ID = process.env.SPREADSHEET_ID ?? '';
-const CLIENT_EMAIL = process.env.GOOGLE_CLIENT_EMAIL ?? '';
-const PRIVATE_KEY = process.env.GOOGLE_SERVICE_PRIVATE_KEY ?? '';
+
+const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID ?? '';
+const CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL ?? '';
+const PRIVATE_KEY = process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY ?? '';
 const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
 const handleGetClassData = () =>
