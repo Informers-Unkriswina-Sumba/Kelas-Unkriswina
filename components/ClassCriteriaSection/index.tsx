@@ -16,11 +16,11 @@ const ClassCriteriaSection: React.FC<IProps> = (): ReactElement => {
           img_url='/images/logo-unkriswina-sumba-512.jpg'
         />
         <CardClassCriteria
-          title='3 Fakultas'
+          title='10 Program Studi'
           img_url='/images/logo-unkriswina-sumba-512.jpg'
         />
         <CardClassCriteria
-          title='3 Fakultas'
+          title='75 Mata Kuliah'
           img_url='/images/logo-unkriswina-sumba-512.jpg'
         />
       </Flex>
