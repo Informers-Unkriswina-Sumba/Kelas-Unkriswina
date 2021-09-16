@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import React, { ReactNode } from 'react';
-import Footer from '../Footer';
 import { Chakra } from '../../Chakra';
 import Header from '../Header';
 
@@ -36,7 +35,6 @@ const Layout: React.FC<IProps> = (props) => {
         >
           {props.children}
         </main>
-        <Footer />
       </div>
     </Chakra>
   );

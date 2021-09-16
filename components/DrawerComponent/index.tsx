@@ -66,10 +66,15 @@ const DrawerComponent: React.FC<IProps> = (): ReactElement => {
           </DrawerBody>
 
           <DrawerFooter>
-            {/* <Button variant='outline' mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme='blue'>Save</Button> */}
+            <Text
+              fontSize='xx-large'
+              textTransform='uppercase'
+              opacity='.6'
+              fontWeight='extrabold'
+              textAlign='right'
+            >
+              Bibuat oleh HMTI UKRISWINA SUMBA
+            </Text>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
