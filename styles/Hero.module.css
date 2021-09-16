@@ -1,0 +1,14 @@
+.heroImage {
+  background-image: url('/images/vasily-koloda-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: center;
+}
+
+.contentHero {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 90px;
+  padding-left: 32px;
+}

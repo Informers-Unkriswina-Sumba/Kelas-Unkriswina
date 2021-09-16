@@ -2,7 +2,10 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ClassCriteriaSection from '../components/ClassCriteriaSection';
+import Hero from '../components/Hero';
 import Layout from '../components/Layout';
+import PopulerClassSection from '../components/PopulerClassSection';
 import { PUBLIC_URL } from '../constant';
 import { actionSetDataClass } from '../provider/redux/ClassData/ClassDataActions';
 import { IClassDataState } from '../provider/redux/ClassData/ClassDataReducer';
@@ -56,7 +59,10 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className={styles.container}>
+      <div>
+        <Hero />
+        <ClassCriteriaSection />
+        <PopulerClassSection />
         {allClass.allClass.length > 0
           ? 'Database conected'
           : "Database can't conected"}

@@ -1,9 +1,10 @@
 import { Avatar } from '@chakra-ui/avatar';
-import { Button, IconButton } from '@chakra-ui/button';
+import { IconButton } from '@chakra-ui/button';
 import { useColorMode, useColorModeValue } from '@chakra-ui/color-mode';
 import { Box, Flex, Text } from '@chakra-ui/layout';
 import React, { ReactElement } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import DrawerComponent from '../DrawerComponent';
 
 interface IProps {}
 
@@ -23,6 +24,7 @@ const Header: React.FC<IProps> = (): ReactElement => {
       paddingRight='2'
       paddingTop='4'
       paddingBottom='4'
+      marginBottom='8'
     >
       <Flex align='center' justify='space-between' direction='row'>
         <Avatar
@@ -48,6 +50,7 @@ const Header: React.FC<IProps> = (): ReactElement => {
             icon={<SwitchIcon />}
             aria-label={`Switch to ${text} mode`}
           />
+          <DrawerComponent />
         </Flex>
       </Flex>
     </Box>
