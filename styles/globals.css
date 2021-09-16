@@ -1,9 +1,40 @@
 .AppHeader {
   box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px,
-    rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px,
+    rgba(240, 46, 170, 0.2) 0px 15px, #f02eaa1a 0px 20px,
     rgba(240, 46, 170, 0.05) 0px 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .Primarycolor {
   color: #d53f8c;
+}
+
+.ContainerMainApp {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.MainApp,
+.ContentAppHeader {
+  width: 576px;
+}
+
+.ContainerFooterApp {
+  position: fixed;
+  bottom: 5%;
+  right: 10%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .MainApp,
+  .ContentAppHeader {
+    width: 100%;
+  }
+
+  .ContainerFooterApp {
+    right: 15%;
+  }
 }

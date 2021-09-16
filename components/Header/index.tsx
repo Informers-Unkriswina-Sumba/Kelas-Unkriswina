@@ -2,6 +2,7 @@ import { Avatar } from '@chakra-ui/avatar';
 import { IconButton } from '@chakra-ui/button';
 import { useColorMode, useColorModeValue } from '@chakra-ui/color-mode';
 import { Box, Flex, Text } from '@chakra-ui/layout';
+import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import DrawerComponent from '../DrawerComponent';
@@ -26,21 +27,33 @@ const Header: React.FC<IProps> = (): ReactElement => {
       paddingBottom='4'
       marginBottom='8'
     >
-      <Flex align='center' justify='space-between' direction='row'>
-        <Avatar
-          size='md'
-          name='Prosper Otemuyiwa'
-          src='/images/logo-unkriswina-sumba-512.jpg'
-        />
+      <Flex
+        align='center'
+        justify='space-between'
+        direction='row'
+        className='ContentAppHeader'
+      >
+        <Link href='/'>
+          <Avatar
+            size='md'
+            name='Prosper Otemuyiwa'
+            src='/images/logo-unkriswina-sumba-512.jpg'
+          />
+        </Link>
         <Flex direction='column' align='center'>
           <Text fontSize='md' fontWeight='bold'>
             Kelas Unkriswina
           </Text>
-          <Text fontSize='sm' fontWeight='medium'>
+          <Text fontSize='sm' fontWeight='medium' align='center'>
             Semester / Tahun : I / 2021-2022
           </Text>
         </Flex>
-        <Flex align='center' justify='space-between' direction='row'>
+        <Flex
+          align='center'
+          justify='space-between'
+          direction='row'
+          gridGap={2}
+        >
           <IconButton
             size='sm'
             fontSize='sm'

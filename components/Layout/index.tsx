@@ -1,6 +1,8 @@
+import { Box, Container } from '@chakra-ui/layout';
 import Head from 'next/head';
 import React, { ReactNode } from 'react';
 import { Chakra } from '../../Chakra';
+import Footer from '../Footer';
 import Header from '../Header';
 
 interface IProps {
@@ -28,13 +30,12 @@ const Layout: React.FC<IProps> = (props) => {
         /> */}
         </Head>
         <Header />
-        <main
-          style={{
-            minHeight: '100vh',
-          }}
-        >
-          {props.children}
+        <main className='ContainerMainApp'>
+          <Box borderRadius='lg' className='MainApp' boxShadow='base'>
+            {props.children}
+          </Box>
         </main>
+        <Footer />
       </div>
     </Chakra>
   );
