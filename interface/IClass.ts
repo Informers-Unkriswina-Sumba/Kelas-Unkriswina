@@ -1,5 +1,9 @@
 export interface IClass {
   id: string;
+  fakultas: string;
+  kode_fakultas: string;
+  program_studi: string;
+  kode_program_studi: string;
   nama_matakuliah: string;
   kelas: string;
   semester: number;
@@ -16,4 +20,5 @@ export interface IClass {
   zoom_meeting_link: string | null;
   zoom_meeting_code: string | null;
   google_meet_link: string | null;
+  img_url: string;
 }

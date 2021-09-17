@@ -1,4 +1,4 @@
-import { ENUM_FAKULTAS, ENUM_KODE_FAKULTAS, ENUM_PROGRAM_STUDI } from "../enum"
+import { ENUM_FAKULTAS, ENUM_KODE_FAKULTAS, ENUM_KODE_PROGRAM_STUDI, ENUM_PROGRAM_STUDI } from "../enum"
 import { IFilterFakultasType, IFilterProgramStudiType, IRouteApp } from "../interface"
 
 export const PUBLIC_URL= 'https://kelasunkriswina.vercel.app/'
@@ -26,56 +26,61 @@ export const LIST_PROGRAM_STUDI:IFilterProgramStudiType[] = [
     key: ENUM_PROGRAM_STUDI.TEKNIK_INFORMATIKA,
     label: 'Prodi Teknik Informatika',
     kode_fakultas: ENUM_KODE_FAKULTAS.FST,
-  },
-  {
-    key: ENUM_PROGRAM_STUDI.TEKNIK_INFORMATIKA,
-    label: 'Prodi Teknik Informatika',
-    kode_fakultas: ENUM_KODE_FAKULTAS.FST,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.TIF
   },
   {
     key: ENUM_PROGRAM_STUDI.PETERNAKAN,
     label: 'Prodi Peternakan',
     kode_fakultas: ENUM_KODE_FAKULTAS.FST,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.PTK
   },
   {
     key: ENUM_PROGRAM_STUDI.AGROTEKNOLOGI,
     label: 'Prodi Agroteknologi',
     kode_fakultas: ENUM_KODE_FAKULTAS.FST,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.AGT
   },
   {
     key: ENUM_PROGRAM_STUDI.AGRIBISNIS,
     label: 'Prodi Agribisnis',
     kode_fakultas: ENUM_KODE_FAKULTAS.FST,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.AGB
   },
   {
     key: ENUM_PROGRAM_STUDI.TEKNOLOGI_HASIL_PERIKANAN,
     label: 'Prodi Teknologi Hasil Perikanan',
     kode_fakultas: ENUM_KODE_FAKULTAS.FST,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.THP
   },
   {
     key: ENUM_PROGRAM_STUDI.MANAJEMEN,
     label: 'Prodi Manajemen',
     kode_fakultas: ENUM_KODE_FAKULTAS.FEBH,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.MAN
   },
   {
     key: ENUM_PROGRAM_STUDI.EKONOMI_PEMBANGUNAN,
     label: 'Prodi Ekonomi Pembangunan',
     kode_fakultas: ENUM_KODE_FAKULTAS.FEBH,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.EP
   },
   {
     key: ENUM_PROGRAM_STUDI.ILMU_HUKUM,
     label: 'Prodi Ilmu Hukum',
     kode_fakultas: ENUM_KODE_FAKULTAS.FEBH,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.HKM
   },
   {
     key: ENUM_PROGRAM_STUDI.PENDIDIKAN_BIOLOGI,
     label: 'Prodi Pendidikan Biologi',
     kode_fakultas: ENUM_KODE_FAKULTAS.FKIP,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.PBI
   },
   {
     key: ENUM_PROGRAM_STUDI.PENDIDIKAN_MATEMATIKA,
     label: 'Prodi Pendidikan Matematika',
     kode_fakultas: ENUM_KODE_FAKULTAS.FKIP,
+    kode_program_studi: ENUM_KODE_PROGRAM_STUDI.PM
   }
 ]
 

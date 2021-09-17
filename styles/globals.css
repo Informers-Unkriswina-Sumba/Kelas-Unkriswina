@@ -10,6 +10,10 @@
   color: #d53f8c;
 }
 
+.PrimaryBackgroundColor {
+  background-color: #d53f8c;
+}
+
 .ContainerMainApp {
   display: flex;
   justify-content: center;

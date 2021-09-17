@@ -48,12 +48,7 @@ const Header: React.FC<IProps> = (): ReactElement => {
             Semester / Tahun : I / 2021-2022
           </Text>
         </Flex>
-        <Flex
-          align='center'
-          justify='space-between'
-          direction='row'
-          gridGap={2}
-        >
+        <Flex align='center' justify='space-between' direction='row'>
           <IconButton
             size='sm'
             fontSize='sm'

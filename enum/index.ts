@@ -10,6 +10,20 @@ export enum ENUM_KODE_FAKULTAS {
   FKIP = 'FKIP'
 }
 
+export enum ENUM_KODE_PROGRAM_STUDI {
+  TIF = 'TIF',
+  PTK = 'PTK',
+  AGB = 'AGB',
+  AGT = 'AGT',
+  THP = 'THP',
+  MAN = 'MAN',
+  HKM = 'HKM',
+  PBI = 'PBI',
+  PM = 'PM',
+  EP = 'EP',
+}
+
+
 export enum ENUM_PROGRAM_STUDI {
   PETERNAKAN = 'Peternakan',
   AGROTEKNOLOGI = 'Agroteknologi',

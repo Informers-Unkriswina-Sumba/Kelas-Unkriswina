@@ -40,9 +40,13 @@ const handleGetClassData = () =>
       rows.forEach((classData: any) => {
         tempAllClass.push({
           id: classData.id,
+          fakultas: classData.fakultas,
+          kode_fakultas: classData.kode_fakultas,
+          program_studi: classData.program_studi,
+          kode_program_studi: classData.kode_program_studi,
           nama_matakuliah: classData.nama_matakuliah,
           kelas: classData.kelas,
-          semester: classData.semester,
+          semester: Number(classData.semester),
           hari: classData.hari,
           jam_mulai: classData.jam_mulai,
           jam_berakhir: classData.jam_berakhir,
@@ -56,6 +60,7 @@ const handleGetClassData = () =>
           zoom_meeting_link: classData?.zoom_meeting_link ?? null,
           zoom_meeting_code: classData?.zoom_meeting_code ?? null,
           google_meet_link: classData?.google_meet_link ?? null,
+          img_url: '/images/logo-unkriswina-sumba-512.jpg',
         });
       });
       resolve(tempAllClass);
