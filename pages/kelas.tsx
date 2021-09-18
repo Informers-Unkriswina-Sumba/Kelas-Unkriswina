@@ -1,3 +1,4 @@
+import { FormErrorMessage } from '@chakra-ui/form-control';
 import { Box, Container, Text } from '@chakra-ui/layout';
 import { Select } from '@chakra-ui/select';
 import Head from 'next/head';
@@ -101,6 +102,9 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
       clearStateFakultas();
       clearStateProgramStudi();
     }
+    // clearStateProgramStudi();
+    clearStateSemester();
+    clearStateMataKuliah();
   };
 
   const clearStateFakultas = (): void => {
@@ -199,11 +203,16 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
           });
         setParamsSemester(tempSelectedSemester[0]);
         setListMataKuliah(tempListMatakuliah);
+
         handleSetQueryParams('semester', tempSelectedSemester[0]);
       }
     } else {
       // clear selected semester
       clearStateSemester();
+      setSelectedMataKuliah(undefined);
+      setParamsMataKuliah('');
+      handleSetQueryParams('matakuliah', '');
+      setListClassMataKuliah([]);
     }
   };
 
@@ -456,6 +465,11 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
             {/* Dropdown menu fakultas */}
             <Box mt={4} mb={4}>
               <Text fontWeight='bold'>Fakultas</Text>
+              {fakultasSelected === undefined && (
+                <Text fontSize='xs' color='red.600'>
+                  Kamu belum pilih fakultas
+                </Text>
+              )}
               <Select
                 fontSize='14'
                 placeholder='Pilih fakultas'
@@ -474,6 +488,11 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
             {/* Dropdown menu program studi */}
             <Box mb={4}>
               <Text fontWeight='bold'>Program Studi</Text>
+              {programStudiSelected === undefined && (
+                <Text fontSize='xs' color='red.600'>
+                  Kamu belum pilih program studi
+                </Text>
+              )}
               <Select
                 fontSize='14'
                 placeholder='Pilih Program Studi'
@@ -492,6 +511,11 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
             {/* Dropdown menu semester */}
             <Box mb={4}>
               <Text fontWeight='bold'>Semester</Text>
+              {paramsSemester === 0 && (
+                <Text fontSize='xs' color='red.600'>
+                  Kamu belum pilih semester
+                </Text>
+              )}
               <Select
                 fontSize='14'
                 placeholder='Pilih Semester'
@@ -515,6 +539,11 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
             {listMataKuliah.length > 0 && (
               <Box mb={4}>
                 <Text fontWeight='bold'>Mata Kuliah</Text>
+                {selectedMataKuliah === undefined && (
+                  <Text fontSize='xs' color='orange.600'>
+                    Kamu belum pilih mata kuliah
+                  </Text>
+                )}
                 <Select
                   fontSize='14'
                   placeholder='Pilih Mata Kuliah'
@@ -534,14 +563,14 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
           </>
         )}
       </Container>
-      <Text fontWeight='bold' fontSize='xx-large' align='center' mt={6}>
-        Data Matakuliah Masih Dalam Proses Perundingan
-      </Text>
       <Container px={3}>
         {listClassMataKuliah.map((classMataKuliah: IClass, index: number) => (
           <CardClassMataKuliah key={index} classMataKuliah={classMataKuliah} />
         ))}
       </Container>
+      <Text fontWeight='bold' fontSize='x-large' align='center' mt={6}>
+        Data Matakuliah Masih Dalam Proses Perundingan
+      </Text>
     </Layout>
   );
 };

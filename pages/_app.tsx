@@ -9,8 +9,21 @@ export interface AppRenderProps {
 }
 import type { NextComponentType, NextPageContext } from 'next';
 import type { NextRouter } from 'next/router';
+import { FirebaseAnalytics } from '../lib/firebase/clientApp';
+import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }: AppRenderProps) {
+  useEffect(() => {
+    // Enable Analytics in Production
+    if (process.env.NODE_ENV === 'production') {
+      FirebaseAnalytics();
+      // console.log('running analitics firebase on production mode');
+    } else {
+      // FirebaseAnalytics();
+      // console.log('running analitics firebase on development mode');
+    }
+  }, []);
+
   return (
     <Provider store={store}>
       <Component {...pageProps} />

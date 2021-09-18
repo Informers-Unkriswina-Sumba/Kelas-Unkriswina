@@ -34,3 +34,6 @@ config/kelas-unkriswina-1214487f80a7.json
 
 # vercel
 .vercel
+
+# private-key
+/private-key

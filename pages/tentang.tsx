@@ -46,17 +46,17 @@ const PaketHarga: React.FC<IProps> = (): ReactElement => {
         <Text fontSize='sm' mt={3}>
           Kelas Unkriswina adalah sebuah platform yang diperuntukan kepada
           <b> Mahasiswa/i</b> Universitas Kristen Wira Wacana Sumba (UNKRISWINA)
-          dalam mencari jadwal perkuliahan pada setiap Mata Kuliah yang
-          ditempuh. Di Kelas Unkriswina, Mahasiswa/i dapat mencari kelas yang
-          telah mereka ambil/setujuhi melalui proses KRS. Informasi kelas pada
-          setiap Matakuliah yang ditampilkan di kelas unkriswina mengikuti
-          dengan informasi kelas yang disediakan oleh pihak kampus dimana sudah
-          tertuangan dalam KRS.
+          dalam mencari informasi jadwal perkuliahan pada setiap Mata Kuliah
+          yang ditempuh. Di Kelas Unkriswina, Mahasiswa/i dapat mencari kelas
+          yang telah mereka ambil/setujuhi melalui proses Kartu Rencana Studi
+          (KRS). Informasi kelas pada setiap Matakuliah yang ditampilkan di
+          kelas unkriswina mengikuti dengan informasi kelas yang disediakan oleh
+          pihak kampus dimana sudah tertuangan dalam KRS.
         </Text>
         <Text fontSize='sm' mt={3}>
           Keunggulan dari Kelas Unkriswina, Mahasiswa/i dapat dengan mudah
-          mencari informasi kelas yang ingin mereka dapatkan, informasi kelas
-          yang ditampilkan sangatlah lengkap bahkan ada yang tidak terterai di
+          mencari informasi kelas yang ingin didapatkan, informasi kelas yang
+          ditampilkan sangatlah lengkap bahkan termasuk yang tidak terterai di
           KRS seperti, link Whatsapp group kelas, link Classroom kelas, link
           Google meet kelas, link Zoom meeting kelas, dan fitur-fitur menarik
           lainnya seperti <b>Kelas saya</b> (segera) <b>Filter canggih</b>{' '}
@@ -64,7 +64,7 @@ const PaketHarga: React.FC<IProps> = (): ReactElement => {
           di masa yang sebelumnya
         </Text>
         <Text fontSize='sm' mt={3}>
-          Kelas Unkriswina juga hadir untuk menumbuhkan sikap-sikap
+          Kelas Unkriswina juga hadir untuk menumbuhkan Sikap & Semangat
           <b> Berwirausaha</b> bagi Mahasiswa/i Program Studi Teknik Informatika
           Universitas Kristen Wira Wacana Sumba dalam membuat Sistem Informasi
           yang berbayar & digunakan pada lingkungan Kampus.

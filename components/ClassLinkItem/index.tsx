@@ -1,3 +1,4 @@
+import { useClipboard } from '@chakra-ui/hooks';
 import { Flex, Link, Text } from '@chakra-ui/layout';
 import React, { ReactElement } from 'react';
 import { ReactNode } from 'react';
@@ -9,6 +10,13 @@ interface IProps {
 }
 
 const ClassLinkItem: React.FC<IProps> = (props): ReactElement => {
+  const { hasCopied: hasCopiedLink, onCopy: onCopyLink } = useClipboard(
+    props.link
+  );
+  const { hasCopied: hasCopiedKode, onCopy: onCopyKode } = useClipboard(
+    props.kode ?? ''
+  );
+
   return (
     <Flex alignItems='center' gridGap={3} mb={1}>
       {props.icon}
@@ -23,12 +31,30 @@ const ClassLinkItem: React.FC<IProps> = (props): ReactElement => {
           Klik untuk masuk
         </Link>
         <Flex gridGap={2}>
-          <Text fontSize='sm' textTransform='capitalize' color='teal.500'>
-            Salin link
+          <Text
+            fontSize='sm'
+            textTransform='capitalize'
+            color='teal.500'
+            onClick={onCopyLink}
+            _hover={{
+              textDecoration: 'underline',
+              cursor: 'pointer',
+            }}
+          >
+            {hasCopiedLink ? 'Link tersalin' : 'Salin link'}
           </Text>
           {props.kode && (
-            <Text fontSize='sm' textTransform='capitalize' color='teal.500'>
-              Salin kode
+            <Text
+              fontSize='sm'
+              textTransform='capitalize'
+              color='teal.500'
+              onClick={onCopyKode}
+              _hover={{
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
+            >
+              {hasCopiedKode ? 'Link tersalin' : 'Salin link'}
             </Text>
           )}
         </Flex>
