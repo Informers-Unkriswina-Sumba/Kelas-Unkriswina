@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/layout';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect } from 'react';
@@ -23,7 +24,6 @@ const Home: NextPage = () => {
     };
   });
 
-  console.log('allClass', allClass);
   useEffect(() => {
     if (allClass.allClass.length < 1) {
       dispatch(actionSetDataClass());
@@ -59,14 +59,11 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div>
+      <Box mb={6}>
         <Hero />
         <ClassCriteriaSection />
         <PopulerClassSection />
-        {allClass.allClass.length > 0
-          ? 'Database conected'
-          : "Database can't conected"}
-      </div>
+      </Box>
     </Layout>
   );
 };

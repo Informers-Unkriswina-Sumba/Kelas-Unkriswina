@@ -24,7 +24,6 @@ import { IClass } from '../interface/IClass';
 import { actionSetDataClass } from '../provider/redux/ClassData/ClassDataActions';
 import { IClassDataState } from '../provider/redux/ClassData/ClassDataReducer';
 import { ICombinedState } from '../provider/redux/store';
-import styles from '../styles/Home.module.css';
 
 interface IProps {}
 interface IReduxState {
@@ -73,6 +72,9 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
     event: React.ChangeEvent<HTMLSelectElement>
   ): void => {
     if (event.target.value) {
+      setProgramStudiSelected(undefined);
+      clearStateSemester();
+      clearStateMataKuliah();
       // selected fakultas
       const tempSelectedFakultas = LIST_FAKULTAS.filter(
         (fakultas: IFilterFakultasType) =>
@@ -96,14 +98,34 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
       }
     } else {
       // clear selected fakultas
-      setFakultasSelected(undefined);
-      setParamsSemester(0);
-      setOptionsSelectedProgramStudi([]);
-      setParamsKodeFakultas('');
-      setListMataKuliah([]);
-      handleSetQueryParams('fakultas', '');
-      setListClassMataKuliah([]);
+      clearStateFakultas();
+      clearStateProgramStudi();
     }
+  };
+
+  const clearStateFakultas = (): void => {
+    setFakultasSelected(undefined);
+    handleSetQueryParams('fakultas', '');
+  };
+
+  const clearStateProgramStudi = (): void => {
+    setProgramStudiSelected(undefined);
+    handleSetQueryParams('programstudi', '');
+    setParamsProgramStudi('');
+    setOptionsSelectedProgramStudi([]);
+  };
+
+  const clearStateSemester = (): void => {
+    setParamsSemester(0);
+    handleSetQueryParams('semester', '');
+  };
+
+  const clearStateMataKuliah = (): void => {
+    setListMataKuliah([]);
+    setListClassMataKuliah([]);
+    setSelectedMataKuliah(undefined);
+    setParamsMataKuliah('');
+    handleSetQueryParams('matakuliah', '');
   };
 
   // Handle change state program studi
@@ -111,6 +133,8 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
     event: React.ChangeEvent<HTMLSelectElement>
   ): void => {
     if (event.target.value) {
+      clearStateSemester();
+      clearStateMataKuliah();
       // selected fakultas
       const tempSelectedProgramStudi = LIST_PROGRAM_STUDI.filter(
         (programStudi: IFilterProgramStudiType) =>
@@ -130,11 +154,8 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
     } else {
       // clear selected program studi
       setProgramStudiSelected(undefined);
-      setParamsSemester(0);
-      setParamsProgramStudi('');
-      setListMataKuliah([]);
       handleSetQueryParams('programstudi', '');
-      setListClassMataKuliah([]);
+      setParamsProgramStudi('');
     }
   };
 
@@ -143,6 +164,7 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
     event: React.ChangeEvent<HTMLSelectElement>
   ): void => {
     if (event.target.value) {
+      clearStateMataKuliah();
       // selected semester
       const usedSemester = IS_SEMESTER_GANJIL
         ? LIST_SEMESTER_GANJIL
@@ -175,26 +197,19 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
               label: kelas.nama_matakuliah,
             };
           });
-        console.log('tempListMatakuliah', tempListMatakuliah);
         setParamsSemester(tempSelectedSemester[0]);
         setListMataKuliah(tempListMatakuliah);
         handleSetQueryParams('semester', tempSelectedSemester[0]);
       }
     } else {
       // clear selected semester
-      setParamsSemester(0);
-      setListMataKuliah([]);
-      handleSetQueryParams('semester', '');
-      setListClassMataKuliah([]);
+      clearStateSemester();
     }
   };
 
   const handleProcessQueryParams = (): void => {
-    console.log('paramsKodeFakultas', paramsKodeFakultas);
-    console.log('paramsSemester', paramsSemester);
-    console.log('paramsKodeProgramStudi', paramsKodeProgramStudi);
-    console.log('paramsMataKuliah', paramsMataKuliah);
-    console.log('allClass.allClass', allClass.allClass);
+    let tempListMatakuliah: IListMataKuliah[] = [];
+
     // process query fakultas
     if (paramsKodeFakultas) {
       const tempSelectedFakultas = LIST_FAKULTAS.filter(
@@ -257,8 +272,7 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
               kodeProgramStudi.toLocaleLowerCase() &&
             Number(classMataKuliah.semester) === tempSelectedSemester[0]
         );
-        console.log('allListMataKuliah', allListMataKuliah);
-        const tempListMatakuliah = allListMataKuliah
+        tempListMatakuliah = allListMataKuliah
           .filter(
             (kelas: IClass, index: number, passClass: IClass[]) =>
               passClass.findIndex(
@@ -272,7 +286,6 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
               label: kelas.nama_matakuliah,
             };
           });
-        console.log('tempListMatakuliah', tempListMatakuliah);
         setParamsSemester(tempSelectedSemester[0]);
         setListMataKuliah(tempListMatakuliah);
         handleSetQueryParams('semester', tempSelectedSemester[0]);
@@ -280,7 +293,7 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
     }
 
     if (paramsMataKuliah) {
-      const tempSelectedMataKuliah = listMataKuliah.filter(
+      const tempSelectedMataKuliah = tempListMatakuliah.filter(
         (mataKuliah: IListMataKuliah) =>
           mataKuliah.key.toLocaleLowerCase() ===
           paramsMataKuliah.toLocaleLowerCase()
@@ -312,7 +325,6 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
             paramsMataKuliah.toLocaleLowerCase()
       );
 
-      console.log('allListMataKuliah', allListMataKuliah);
       setListClassMataKuliah(allListMataKuliah);
     }
   };
@@ -349,7 +361,6 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
             Number(classMataKuliah.semester) === semester &&
             classMataKuliah.nama_matakuliah.toLocaleLowerCase() === mataKuliah
         );
-        console.log('allListMataKuliah', allListMataKuliah);
         setListClassMataKuliah(allListMataKuliah);
       }
     } else {
@@ -380,17 +391,33 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
     router.replace(newPathname, newAsPath);
   };
 
+  const clearAllParamsState = (): void => {
+    // const newPathname = stringifyUrl({
+    //   url: '',
+    //   query: {},
+    // });
+    // const newAsPath = stringifyUrl({
+    //   url: '',
+    //   query: {},
+    // });
+    // router.replace(newPathname, newAsPath);
+  };
+
   useEffect(() => {
     async function funcAsycnDefault() {
       setLoading(true);
       if (allClass.allClass.length < 1) {
         await dispatch(actionSetDataClass());
       }
-      handleProcessQueryParams();
       setLoading(false);
     }
     funcAsycnDefault();
-  }, [allClass.allClass]);
+    return () => clearAllParamsState();
+  }, []);
+
+  useEffect(() => {
+    handleProcessQueryParams();
+  }, [allClass]);
 
   return (
     <Layout>
@@ -421,7 +448,7 @@ const Kelas: React.FC<IProps> = (): ReactElement => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Container px={3}>
+      <Container px={3} mb={6}>
         {loading ? (
           <></>
         ) : (

@@ -97,4 +97,12 @@ export const APP_ROUTE:IRouteApp[] = [
     key: '/kelas',
     label: 'Kelas'
   },
+  {
+    key: '/paket-harga',
+    label: 'Paket Harga'
+  },
+  {
+    key: '/tentang',
+    label: 'Tentang Kami'
+  },
 ];

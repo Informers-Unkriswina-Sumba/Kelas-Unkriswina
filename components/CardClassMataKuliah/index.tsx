@@ -29,7 +29,7 @@ const CardClassMataKuliah: React.FC<IProps> = (props): ReactElement => {
         pr={3}
         w='full'
         justifyContent='flex-start'
-        alignItems='center'
+        // alignItems='center'
         gridGap={2}
       >
         <Image

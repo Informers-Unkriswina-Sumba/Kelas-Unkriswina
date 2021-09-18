@@ -35,12 +35,13 @@ const CardPopulerClass: React.FC<IProps> = (props): ReactElement => {
         position='relative'
       >
         <Circle
-          size='10px'
           position='absolute'
           top={2}
           p={4}
           right={2}
           bg='red.500'
+          color='whiteAlpha.900'
+          fontSize='xx-large'
         >
           #{props.ranking}
         </Circle>
